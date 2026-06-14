@@ -1,0 +1,233 @@
+
+# Quickstart
+
+[[open-in-colab]]
+
+This quickstart is intended for developers who are ready to dive into the code and see an example of how to train and use 🤗 SetFit models. We recommend starting with this quickstart, and then proceeding to the [tutorials](./tutorials/overview) or [how-to guides](./how_to/overview) for additional material. Additionally, the [conceptual guides](./conceptual_guides/setfit) help explain exactly how SetFit works.
+
+Start by installing 🤗 SetFit:
+
+```bash
+pip install setfit
+```
+
+If you have a CUDA-capable graphics card, then it is recommended to [install `torch` with CUDA support](https://pytorch.org/get-started/locally/) to train and performing inference much more quickly:
+
+```bash
+pip install torch --index-url https://download.pytorch.org/whl/cu118
+```
+
+## SetFit
+
+SetFit is an efficient framework to train low-latency text classification models using little training data. In this Quickstart, you'll learn how to train a SetFit model, how to perform inference with it, and how to save it to the Hugging Face Hub.
+
+### Training
+
+In this section, you'll load a [Sentence Transformer model](https://huggingface.co/models?library=sentence-transformers) and further finetune it for classifying movie reviews as positive or negative. To train a model, we will need to prepare the following three: 1) a **model**, 2) a **dataset**, and 3) **training arguments**.
+
+**1**. Initialize a SetFit model using a Sentence Transformer model of our choice. Consider using the [MTEB Leaderboard](https://huggingface.co/spaces/mteb/leaderboard) to guide your decision on which Sentence Transformer model to choose. We will use [BAAI/bge-small-en-v1.5](https://huggingface.co/BAAI/bge-small-en-v1.5), a small but performant model.
+
+```py
+>>> from setfit import SetFitModel
+
+>>> model = SetFitModel.from_pretrained("BAAI/bge-small-en-v1.5")
+```
+
+**2a**. Next, load both the "train" and "test" splits of the [SetFit/sst2](https://huggingface.co/datasets/sst2) dataset. Note that the dataset has `"text"` and `"label"` columns: this is exactly the format that 🤗 SetFit expects. If your dataset has different columns, then you can use the column_mapping argument of the [`Trainer`] in step 4 to map the column names to `"text"` and `"label"`.
+
+```py
+>>> from datasets import load_dataset
+
+>>> dataset = load_dataset("SetFit/sst2")
+>>> dataset
+DatasetDict({
+    train: Dataset({
+        features: ['text', 'label', 'label_text'],
+        num_rows: 6920
+    })
+    test: Dataset({
+        features: ['text', 'label', 'label_text'],
+        num_rows: 1821
+    })
+    validation: Dataset({
+        features: ['text', 'label', 'label_text'],
+        num_rows: 872
+    })
+})
+```
+
+**2b**. In real world scenarios it is very uncommon to have ~7.000 high quality labeled training samples, so we will heavily shrink the training dataset to give a better idea of how 🤗 SetFit would work in real settings. To be specific, the `sample_dataset` function will sample only 8 samples for each class. The testing set is left unaffected for better evaluation.
+
+```py
+>>> from setfit import sample_dataset
+
+>>> train_dataset = sample_dataset(dataset["train"], label_column="label", num_samples=8)
+>>> train_dataset
+Dataset({
+    features: ['text', 'label', 'label_text'],
+    num_rows: 16
+})
+```
+
+```py
+>>> test_dataset = dataset["test"]
+>>> test_dataset
+Dataset({
+    features: ['text', 'label', 'label_text'],
+    num_rows: 1821
+})
+```
+
+**2c**. We can apply the labels from the dataset on the model, so the predictions output readable classes. You can also provide the labels directly to [`SetFitModel.from_pretrained`].
+
+```py
+>>> model.labels = ["negative", "positive"]
+```
+
+**3**. Prepare the [`TrainingArguments`] for training. Note that training with 🤗 SetFit consists of two phases behind the scenes: **finetuning embeddings** and **training a classification head**. As a result, some of the training arguments can be tuples, where the two values are used for each of the two phases, respectively.
+
+The `num_epochs` and `max_steps` arguments are frequently used to increase and decrease the number of total training steps. Consider that with SetFit, better performance is reached with **more data, not more training**! Don't be afraid to train for less than 1 epoch if you have a lot of data.
+
+```py
+>>> from setfit import TrainingArguments
+
+>>> args = TrainingArguments(
+...     batch_size=32,
+...     num_epochs=10,
+... )
+```
+
+**4**. Initialize the [`Trainer`] and perform training.
+
+```py
+>>> from setfit import Trainer
+
+>>> trainer = Trainer(
+...     model=model,
+...     args=args,
+...     train_dataset=train_dataset,
+... )
+```
+
+```py
+>>> trainer.train()
+***** Running training *****
+  Num examples = 5
+  Num epochs = 10
+  Total optimization steps = 50
+  Total train batch size = 32
+{'embedding_loss': 0.2077, 'learning_rate': 4.000000000000001e-06, 'epoch': 0.2}                                                                                                                
+{'embedding_loss': 0.0097, 'learning_rate': 0.0, 'epoch': 10.0}                                                                                                                                 
+{'train_runtime': 14.705, 'train_samples_per_second': 108.807, 'train_steps_per_second': 3.4, 'epoch': 10.0}
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:08<00:00,  5.70it/s]
+```
+
+**5**. Perform evaluation using the provided testing dataset.
+
+```py
+>>> trainer.evaluate(test_dataset)
+***** Running evaluation *****
+{'accuracy': 0.8511806699615596}
+```
+
+Feel free to experiment with increasing the number of samples per class to observe the improvements in accuracy. As a challenge, you can play with the samples per class, learning rate, number of epochs, maximum number of steps, and the base Sentence Transformer model to try and improve the accuracy over 90% using very little data.
+
+### Saving a 🤗 SetFit model
+
+After training, you can save a 🤗 SetFit model to your local filesystem or to the Hugging Face Hub. Save a model to a local directory using [`SetFitModel.save_pretrained`] by providing a `save_directory`:
+
+```py
+>>> model.save_pretrained("setfit-bge-small-v1.5-sst2-8-shot")
+```
+
+Alternatively, push a model to the Hugging Face Hub using [`SetFitModel.push_to_hub`] by providing a `repo_id`:
+
+```py
+>>> model.push_to_hub("tomaarsen/setfit-bge-small-v1.5-sst2-8-shot")
+```
+
+### Loading a 🤗 SetFit model
+
+A 🤗 SetFit model can be loaded using [`SetFitModel.from_pretrained`] by providing 1) a `repo_id` from the Hugging Face Hub or 2) a path to a local directory:
+
+```py
+>>> model = SetFitModel.from_pretrained("tomaarsen/setfit-bge-small-v1.5-sst2-8-shot") # Load from the Hugging Face Hub
+
+>>> model = SetFitModel.from_pretrained("setfit-bge-small-v1.5-sst2-8-shot") # Load from a local directory
+```
+
+### Inference
+
+Once a 🤗 SetFit model has been trained, then it can be used for inference to classify reviews using [`SetFitModel.predict`] or [`SetFitModel.__call__`]:
+
+```py
+>>> preds = model.predict([
+...     "It's a charming and often affecting journey.",
+...     "It's slow -- very, very slow.",
+...     "A sometimes tedious film.",
+... ])
+>>> preds
+['positive' 'negative' 'negative']
+```
+These predictions rely on the `model.labels`. If not set, it will return predictions in the format that was used during training, e.g. `tensor([1, 0, 0])`.
+
+## What's next?
+
+You've completed the 🤗 SetFit quickstart! You can train, save, load and perform inference with 🤗 SetFit models!
+
+For your next steps, take a look at our [How-to guides](./how_to/overview) and learn how to do more specific things like hyperparameter search, knowledge distillation, or zero-shot text classification. If you're interested in learning more about how 🤗 SetFit works, grab a cup of coffee and read our [Conceptual Guides](./conceptual_guides/setfit)!
+
+## End-to-end
+
+This snippet shows the entire quickstart in an end-to-end example:
+
+```py
+from setfit import SetFitModel, Trainer, TrainingArguments, sample_dataset
+from datasets import load_dataset
+
+# Initializing a new SetFit model
+model = SetFitModel.from_pretrained("BAAI/bge-small-en-v1.5", labels=["negative", "positive"])
+
+# Preparing the dataset
+dataset = load_dataset("SetFit/sst2")
+train_dataset = sample_dataset(dataset["train"], label_column="label", num_samples=8)
+test_dataset = dataset["test"]
+
+# Preparing the training arguments
+args = TrainingArguments(
+    batch_size=32,
+    num_epochs=10,
+)
+
+# Preparing the trainer
+trainer = Trainer(
+    model=model,
+    args=args,
+    train_dataset=train_dataset,
+)
+trainer.train()
+
+# Evaluating
+metrics = trainer.evaluate(test_dataset)
+print(metrics)
+# => {'accuracy': 0.8511806699615596}
+
+# Saving the trained model
+model.save_pretrained("setfit-bge-small-v1.5-sst2-8-shot")
+# or
+model.push_to_hub("tomaarsen/setfit-bge-small-v1.5-sst2-8-shot")
+
+# Loading a trained model
+model = SetFitModel.from_pretrained("tomaarsen/setfit-bge-small-v1.5-sst2-8-shot") # Load from the Hugging Face Hub
+# or
+model = SetFitModel.from_pretrained("setfit-bge-small-v1.5-sst2-8-shot") # Load from a local directory
+
+# Performing inference
+preds = model.predict([
+    "It's a charming and often affecting journey.",
+    "It's slow -- very, very slow.",
+    "A sometimes tedious film.",
+])
+print(preds)
+# => ["positive", "negative", "negative"]
+```
