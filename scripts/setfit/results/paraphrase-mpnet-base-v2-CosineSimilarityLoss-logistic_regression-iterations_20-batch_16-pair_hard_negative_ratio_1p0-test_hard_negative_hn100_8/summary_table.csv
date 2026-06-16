@@ -1,0 +1,8 @@
+dataset,measure,8_avg,8_std
+sst5,accuracy,43.7,2.7
+emotion,accuracy,48.6,3.7
+enron_spam,accuracy,90.3,3.3
+ag_news,accuracy,83.3,2.6
+amazon_counterfactual_en,matthews_correlation,44.3,13.0
+SentEval-CR,accuracy,89.0,1.8
+Average,N/A,66.5,4.5

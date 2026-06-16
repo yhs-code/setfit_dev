@@ -1,0 +1,8 @@
+dataset,measure,setfit_8_avg,setfit_8_std,hn50_8_avg,hn50_8_std,avg_delta,std_delta
+sst5,accuracy,44.1,2.3,43.5,3.4,-0.6,+1.1
+emotion,accuracy,49.1,3.6,50.0,4.4,+0.9,+0.8
+enron_spam,accuracy,90.1,3.4,90.1,3.2,+0.0,-0.2
+ag_news,accuracy,83.0,3.2,83.4,2.4,+0.4,-0.8
+amazon_counterfactual_en,matthews_correlation,40.3,13.5,44.9,13.3,+4.6,-0.2
+SentEval-CR,accuracy,88.9,1.4,88.8,2.0,-0.1,+0.6
+Average,N/A,65.9,4.6,66.8,4.8,+0.9,+0.2

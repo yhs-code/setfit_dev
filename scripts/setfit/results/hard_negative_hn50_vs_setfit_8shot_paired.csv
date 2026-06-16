@@ -1,0 +1,8 @@
+dataset,measure,n_pairs,baseline_avg,candidate_avg,mean_delta,std_delta,wins,ties,losses,paired_t_p,wilcoxon_p
+SentEval-CR,accuracy,10,88.8845,88.7915,-0.0930,1.2124,3,0,7,0.8139,0.5566
+ag_news,accuracy,10,82.9724,83.4303,0.4579,1.4889,6,0,4,0.3562,0.5566
+amazon_counterfactual_en,matthews_correlation,10,40.2976,44.8782,4.5806,3.5946,10,0,0,0.0030,0.0020
+emotion,accuracy,10,49.0550,49.9750,0.9200,3.8562,6,0,4,0.4699,0.3750
+enron_spam,accuracy,10,90.1400,90.0650,-0.0750,1.3187,6,0,4,0.8613,0.9219
+sst5,accuracy,10,44.1131,43.4706,-0.6425,1.9357,5,0,5,0.3212,0.4316
+Average,accuracy,60,65.9104,66.7684,0.8580,2.9492,36,0,24,0.0280,0.0411

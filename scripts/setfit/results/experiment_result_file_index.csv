@@ -1,0 +1,9 @@
+category,experiment,result_csv,report_md,raw_summary_table
+config,实验配置总表,ablation_experiment_configs.csv,ablation_experiment_configs.md,N/A
+setfit_ablation,"SetFit test-only 主消融汇总：baseline、shot、num_iterations、classifier",test_only_ablation_summary.csv,test_only_ablation_report.md,see raw result dirs
+frozen_baseline,Frozen ST + LR vs SetFit,frozen_st_lr_vs_setfit_comparison.csv,frozen_st_lr_vs_setfit_report.md,paraphrase-mpnet-base-v2-frozen_st_lr-logistic_regression-batch_16-test_frozen_st_lr/summary_table.csv
+hard_negative,SetFit-HN-50 8-shot vs SetFit baseline,hard_negative_hn50_vs_setfit_8shot.csv,hard_negative_hn50_vs_setfit_8shot_report.md,paraphrase-mpnet-base-v2-CosineSimilarityLoss-logistic_regression-iterations_20-batch_16-pair_hard_negative_ratio_0p5-test_hard_negative_hn50_8/summary_table.csv
+hard_negative,SetFit-HN-50 8-shot paired split analysis,hard_negative_hn50_vs_setfit_8shot_paired.csv,hard_negative_hn50_vs_setfit_8shot_paired.md,per-split results.json
+hard_negative,Hard Negative ratio ablation HN-25/HN-50/HN-75/HN-100,hard_negative_ratio_ablation_summary.csv,hard_negative_ratio_ablation_report.md,see hard-negative raw dirs
+hard_negative,SetFit-HN-50 shot ablation vs SetFit 2/4/8/16-shot,hard_negative_hn50_shot_ablation_vs_setfit.csv,hard_negative_hn50_shot_ablation_report.md,paraphrase-mpnet-base-v2-CosineSimilarityLoss-logistic_regression-iterations_20-batch_16-pair_hard_negative_ratio_0p5-test_hard_negative_hn50_shot_ablation/summary_table.csv
+hard_negative,SetFit-HN-50 shot paired split analysis,hard_negative_hn50_shot_paired_summary.csv,hard_negative_hn50_shot_paired_report.md,per-split results.json

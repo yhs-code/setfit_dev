@@ -22,7 +22,7 @@ from setfit.model_card import ModelCardCallback
 from . import logging
 from .integrations import default_hp_search_backend, is_optuna_available, run_hp_search_optuna
 from .losses import SupConLoss
-from .sampler import ContrastiveDataset
+from .sampler import ContrastiveDataset, HardNegativeContrastiveDataset
 from .training_args import TrainingArguments
 from .utils import BestRun, default_hp_space_optuna
 
@@ -607,14 +607,27 @@ class Trainer(ColumnMappingMixin):
                     margin=args.margin,
                 )
         else:
-            data_sampler = ContrastiveDataset(
-                x,
-                y,
-                self.model.multi_target_strategy,
-                args.num_iterations,
-                args.sampling_strategy,
-                max_pairs=max_pairs,
-            )
+            if args.pair_strategy == "hard_negative":
+                embeddings = self.model.model_body.encode(x, convert_to_numpy=True, show_progress_bar=False)
+                data_sampler = HardNegativeContrastiveDataset(
+                    x,
+                    y,
+                    self.model.multi_target_strategy,
+                    embeddings,
+                    args.num_iterations,
+                    args.sampling_strategy,
+                    max_pairs=max_pairs,
+                    hard_negative_ratio=args.hard_negative_ratio,
+                )
+            else:
+                data_sampler = ContrastiveDataset(
+                    x,
+                    y,
+                    self.model.multi_target_strategy,
+                    args.num_iterations,
+                    args.sampling_strategy,
+                    max_pairs=max_pairs,
+                )
             dataset = Dataset.from_list(list(data_sampler))
             loss = args.loss(self.model.model_body)
 
@@ -863,6 +876,8 @@ class SetFitTrainer(Trainer):
         distance_metric: Callable = BatchHardTripletLossDistanceFunction.cosine_distance,
         margin: float = 0.25,
         samples_per_label: int = 2,
+        pair_strategy: str = "random",
+        hard_negative_ratio: float = 1.0,
     ):
         warnings.warn(
             "`SetFitTrainer` has been deprecated and will be removed in v2.0.0 of SetFit. "
@@ -883,6 +898,8 @@ class SetFitTrainer(Trainer):
             margin=margin,
             samples_per_label=samples_per_label,
             loss=loss_class,
+            pair_strategy=pair_strategy,
+            hard_negative_ratio=hard_negative_ratio,
         )
         super().__init__(
             model=model,

@@ -32,21 +32,21 @@ pandas<2
 fsspec<2023.12.0
 
 [dev]
-optuna
-onnxruntime
-black
 hf-doc-builder>=0.3.0
 spacy<3.7.6
-tabulate
-skl2onnx
-openvino
-onnx!=1.16.2
 pytest-cov
-isort
 flake8
+openvino
+isort
 hummingbird-ml
+onnx!=1.16.2
+tabulate
+onnxruntime
 codecarbon<2.6.0
+optuna
 pytest
+skl2onnx
+black
 
 [docs]
 hf-doc-builder>=0.3.0

@@ -1,0 +1,5 @@
+dataset,measure,8_avg,8_std
+sst2,accuracy,88.3,1.8
+imdb,accuracy,86.3,2.1
+toxic_conversations,accuracy,62.2,6.5
+Average,N/A,79.0,3.4

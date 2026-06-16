@@ -61,6 +61,12 @@ class TrainingArguments:
             and provides compatability with Setfit <v1.0.0.
             This argument is ignored if triplet loss is used.
             It is only used in conjunction with `CosineSimilarityLoss`.
+        pair_strategy (`str`, defaults to `"random"`):
+            The pair construction strategy for `CosineSimilarityLoss`. Set to `"hard_negative"` to select
+            different-label sentence pairs with high frozen-encoder cosine similarity as negative pairs.
+        hard_negative_ratio (`float`, defaults to `1.0`):
+            The fraction of negative pairs drawn from embedding-ranked hard negatives when `pair_strategy`
+            is `"hard_negative"`. The remaining fraction is drawn randomly from all negative pairs.
         body_learning_rate (`Union[float, Tuple[float, float]]`, defaults to `(2e-5, 1e-5)`):
             Set the learning rate for the `SentenceTransformer` body for the embedding and classifier
             training phases respectively, or set both if a float is provided.
@@ -177,6 +183,8 @@ class TrainingArguments:
 
     sampling_strategy: str = "oversampling"
     num_iterations: Optional[int] = None
+    pair_strategy: str = "random"
+    hard_negative_ratio: float = 1.0
 
     # As with batch_size and num_epochs, the first value in the tuple is the learning rate
     # for the embeddings step, while the second value is the learning rate for the classifier step.
@@ -240,6 +248,10 @@ class TrainingArguments:
             raise ValueError(
                 f"warmup_proportion must be greater than or equal to 0.0 and less than or equal to 1.0! But it was: {self.warmup_proportion}"
             )
+        if self.pair_strategy not in {"random", "hard_negative"}:
+            raise ValueError("pair_strategy must be one of 'random' or 'hard_negative'.")
+        if not 0.0 <= self.hard_negative_ratio <= 1.0:
+            raise ValueError("hard_negative_ratio must be between 0.0 and 1.0.")
 
         if self.report_to in (None, "all", ["all"]):
             self.report_to = get_available_reporting_integrations()

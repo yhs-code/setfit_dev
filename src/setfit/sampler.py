@@ -1,5 +1,5 @@
 from itertools import zip_longest
-from typing import Dict, Generator, Iterable, List, Optional, Union
+from typing import Dict, Generator, Iterable, List, Optional, Tuple, Union
 
 import numpy as np
 import torch
@@ -145,6 +145,120 @@ class ContrastiveDataset(IterableDataset):
 
     def __len__(self) -> int:
         return self.len_pos_pairs + self.len_neg_pairs
+
+
+class HardNegativeContrastiveDataset(ContrastiveDataset):
+    def __init__(
+        self,
+        sentences: List[str],
+        labels: List[Union[int, float]],
+        multilabel: bool,
+        embeddings: np.ndarray,
+        num_iterations: Optional[None] = None,
+        sampling_strategy: str = "oversampling",
+        max_pairs: int = -1,
+        hard_negative_ratio: float = 1.0,
+    ) -> None:
+        """Generates contrastive pairs with embedding-ranked hard negatives.
+
+        Negative pairs are different-label examples with high cosine similarity
+        under the current frozen sentence encoder.
+        """
+        if multilabel:
+            raise ValueError("Hard negative pair mining is only supported for single-label datasets.")
+        if not 0.0 <= hard_negative_ratio <= 1.0:
+            raise ValueError("hard_negative_ratio must be between 0.0 and 1.0.")
+
+        self.embeddings = self._normalize_embeddings(embeddings)
+        self.hard_negative_ratio = hard_negative_ratio
+        self.hard_neg_pairs = []
+        self.random_neg_pairs = []
+        self.hard_neg_index = 0
+        self.random_neg_index = 0
+        super().__init__(
+            sentences,
+            labels,
+            multilabel=multilabel,
+            num_iterations=num_iterations,
+            sampling_strategy=sampling_strategy,
+            max_pairs=max_pairs,
+        )
+
+    @staticmethod
+    def _normalize_embeddings(embeddings: np.ndarray) -> np.ndarray:
+        embeddings = np.asarray(embeddings)
+        norms = np.linalg.norm(embeddings, axis=1, keepdims=True)
+        return embeddings / np.clip(norms, a_min=1e-12, a_max=None)
+
+    def _make_pair(self, first_index: int, second_index: int, label: float) -> Dict[str, Union[str, float]]:
+        return {
+            "sentence_1": self.sentences[first_index],
+            "sentence_2": self.sentences[second_index],
+            "label": label,
+        }
+
+    def generate_pairs(self) -> None:
+        positive_candidates: List[Tuple[int, int]] = []
+        negative_candidates: List[Tuple[float, int, int]] = []
+        n_sentences = len(self.sentences)
+
+        for first_index, second_index in np.stack(np.triu_indices(n_sentences, 0), axis=-1):
+            if self.labels[first_index] == self.labels[second_index]:
+                positive_candidates.append((first_index, second_index))
+            else:
+                similarity = float(np.dot(self.embeddings[first_index], self.embeddings[second_index]))
+                negative_candidates.append((similarity, first_index, second_index))
+
+        rng = np.random.RandomState(seed=42)
+        for index in rng.permutation(len(positive_candidates)):
+            first_index, second_index = positive_candidates[index]
+            self.pos_pairs.append(self._make_pair(first_index, second_index, 1.0))
+            if self.max_pos_or_neg != -1 and len(self.pos_pairs) >= self.max_pos_or_neg:
+                break
+
+        hard_negative_candidates = sorted(negative_candidates, key=lambda item: item[0], reverse=True)
+        random_negative_candidates = [negative_candidates[index] for index in rng.permutation(len(negative_candidates))]
+
+        for _, first_index, second_index in hard_negative_candidates:
+            self.hard_neg_pairs.append(self._make_pair(first_index, second_index, 0.0))
+            if self.max_pos_or_neg != -1 and len(self.hard_neg_pairs) >= self.max_pos_or_neg:
+                break
+
+        for _, first_index, second_index in random_negative_candidates:
+            self.random_neg_pairs.append(self._make_pair(first_index, second_index, 0.0))
+            if self.max_pos_or_neg != -1 and len(self.random_neg_pairs) >= self.max_pos_or_neg:
+                break
+
+        self.neg_pairs = self.hard_neg_pairs
+
+    def _cycle_pairs(
+        self, pairs: List[Dict[str, Union[str, float]]], index: int, target_length: int
+    ) -> Tuple[List[Dict[str, Union[str, float]]], int]:
+        cycled_pairs = []
+        for _ in range(target_length):
+            if index >= len(pairs):
+                index = 0
+            cycled_pairs.append(pairs[index])
+            index += 1
+        return cycled_pairs, index
+
+    def get_negative_pairs(self) -> List[Dict[str, Union[str, float]]]:
+        hard_length = int(round(self.len_neg_pairs * self.hard_negative_ratio))
+        random_length = self.len_neg_pairs - hard_length
+        pairs = []
+
+        if hard_length:
+            hard_pairs, self.hard_neg_index = self._cycle_pairs(
+                self.hard_neg_pairs, self.hard_neg_index, hard_length
+            )
+            pairs.extend(hard_pairs)
+        if random_length:
+            random_pairs, self.random_neg_index = self._cycle_pairs(
+                self.random_neg_pairs, self.random_neg_index, random_length
+            )
+            pairs.extend(random_pairs)
+
+        return pairs
 
 
 class ContrastiveDistillationDataset(ContrastiveDataset):

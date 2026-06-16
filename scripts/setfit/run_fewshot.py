@@ -9,6 +9,8 @@ from shutil import copyfile
 from warnings import simplefilter
 
 from sentence_transformers import models
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.svm import SVC
 from typing_extensions import LiteralString
 
 from setfit import SetFitModel, SetFitTrainer
@@ -34,6 +36,8 @@ def parse_args():
     )
     parser.add_argument("--sample_sizes", type=int, nargs="+", default=SAMPLE_SIZES)
     parser.add_argument("--num_iterations", type=int, default=20)
+    parser.add_argument("--pair_strategy", default="random", choices=["random", "hard_negative"])
+    parser.add_argument("--hard_negative_ratio", type=float, default=1.0)
     parser.add_argument("--num_epochs", type=int, default=1)
     parser.add_argument("--batch_size", type=int, default=16)
     parser.add_argument("--max_seq_length", type=int, default=256)
@@ -77,10 +81,14 @@ def main():
     args = parse_args()
 
     parent_directory = pathlib.Path(__file__).parent.absolute()
+    pair_strategy_suffix = ""
+    if args.pair_strategy != "random":
+        ratio_name = str(args.hard_negative_ratio).replace(".", "p")
+        pair_strategy_suffix = f"-pair_{args.pair_strategy}_ratio_{ratio_name}"
     output_path = (
         parent_directory
         / "results"
-        / f"{args.model.replace('/', '-')}-{args.loss}-{args.classifier}-iterations_{args.num_iterations}-batch_{args.batch_size}-{args.exp_name}".rstrip(
+        / f"{args.model.replace('/', '-')}-{args.loss}-{args.classifier}-iterations_{args.num_iterations}-batch_{args.batch_size}{pair_strategy_suffix}-{args.exp_name}".rstrip(
             "-"
         )
     )
@@ -134,6 +142,12 @@ def main():
                 )
             else:
                 model = SetFitModel.from_pretrained(args.model)
+                if args.classifier in {"svc-rbf", "svc-rbf-norm"}:
+                    model.model_head = SVC(kernel="rbf")
+                elif args.classifier == "knn":
+                    model.model_head = KNeighborsClassifier()
+                if args.classifier == "svc-rbf-norm":
+                    model.normalize_embeddings = True
             model.model_body.max_seq_length = args.max_seq_length
             if args.add_normalization_layer:
                 model.model_body._modules["2"] = models.Normalize()
@@ -148,6 +162,8 @@ def main():
                 batch_size=args.batch_size,
                 num_epochs=args.num_epochs,
                 num_iterations=args.num_iterations,
+                pair_strategy=args.pair_strategy,
+                hard_negative_ratio=args.hard_negative_ratio,
             )
             if not args.eval_strategy:
                 trainer.args.eval_strategy = "no"
