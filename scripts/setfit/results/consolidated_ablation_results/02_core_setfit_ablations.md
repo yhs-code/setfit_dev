@@ -1,0 +1,95 @@
+# Core SetFit Ablations
+
+| ablation | setting | dataset | measure | mean | std | stability |
+| --- | --- | --- | --- | --- | --- | --- |
+| baseline | 8-shot, iter=20, LR | sst5 | accuracy | 44.1 | 2.3 | moderate |
+| baseline | 8-shot, iter=20, LR | emotion | accuracy | 49.1 | 3.6 | moderate |
+| baseline | 8-shot, iter=20, LR | enron_spam | accuracy | 90.1 | 3.4 | moderate |
+| baseline | 8-shot, iter=20, LR | ag_news | accuracy | 83.0 | 3.2 | moderate |
+| baseline | 8-shot, iter=20, LR | amazon_counterfactual_en | matthews_correlation | 40.3 | 13.5 | unstable |
+| baseline | 8-shot, iter=20, LR | SentEval-CR | accuracy | 88.9 | 1.4 | stable |
+| baseline | 8-shot, iter=20, LR | Average | N/A | 65.9 | 4.6 | moderate |
+| shot_size | 2-shot | sst5 | accuracy | 33.0 | 2.9 | moderate |
+| shot_size | 2-shot | emotion | accuracy | 29.2 | 6.4 | unstable |
+| shot_size | 2-shot | enron_spam | accuracy | 76.3 | 7.1 | unstable |
+| shot_size | 2-shot | ag_news | accuracy | 63.9 | 5.4 | unstable |
+| shot_size | 2-shot | amazon_counterfactual_en | matthews_correlation | 19.0 | 8.3 | unstable |
+| shot_size | 2-shot | SentEval-CR | accuracy | 76.7 | 10.5 | unstable |
+| shot_size | 2-shot | Average | N/A | 49.7 | 6.8 | unstable |
+| shot_size | 4-shot | sst5 | accuracy | 39.1 | 3.0 | moderate |
+| shot_size | 4-shot | emotion | accuracy | 37.5 | 4.2 | moderate |
+| shot_size | 4-shot | enron_spam | accuracy | 87.1 | 4.1 | moderate |
+| shot_size | 4-shot | ag_news | accuracy | 76.7 | 4.1 | moderate |
+| shot_size | 4-shot | amazon_counterfactual_en | matthews_correlation | 25.6 | 13.6 | unstable |
+| shot_size | 4-shot | SentEval-CR | accuracy | 81.7 | 9.0 | unstable |
+| shot_size | 4-shot | Average | N/A | 58.0 | 6.3 | unstable |
+| shot_size | 8-shot | sst5 | accuracy | 44.1 | 2.3 | moderate |
+| shot_size | 8-shot | emotion | accuracy | 49.1 | 3.6 | moderate |
+| shot_size | 8-shot | enron_spam | accuracy | 90.1 | 3.4 | moderate |
+| shot_size | 8-shot | ag_news | accuracy | 83.0 | 3.2 | moderate |
+| shot_size | 8-shot | amazon_counterfactual_en | matthews_correlation | 40.3 | 13.5 | unstable |
+| shot_size | 8-shot | SentEval-CR | accuracy | 88.9 | 1.4 | stable |
+| shot_size | 8-shot | Average | N/A | 65.9 | 4.6 | moderate |
+| shot_size | 16-shot | sst5 | accuracy | 46.4 | 1.6 | stable |
+| shot_size | 16-shot | emotion | accuracy | 59.5 | 3.0 | moderate |
+| shot_size | 16-shot | enron_spam | accuracy | 92.7 | 2.1 | moderate |
+| shot_size | 16-shot | ag_news | accuracy | 85.2 | 1.3 | stable |
+| shot_size | 16-shot | amazon_counterfactual_en | matthews_correlation | 50.7 | 6.9 | unstable |
+| shot_size | 16-shot | SentEval-CR | accuracy | 88.8 | 1.4 | stable |
+| shot_size | 16-shot | Average | N/A | 70.5 | 2.7 | moderate |
+| shot_size | 64-shot | sst5 | accuracy | 51.8 | 0.5 | stable |
+| shot_size | 64-shot | emotion | accuracy | 76.5 | 1.3 | stable |
+| shot_size | 64-shot | enron_spam | accuracy | 95.9 | 0.5 | stable |
+| shot_size | 64-shot | ag_news | accuracy | 88.1 | 0.6 | stable |
+| shot_size | 64-shot | amazon_counterfactual_en | matthews_correlation | 62.0 | 2.8 | moderate |
+| shot_size | 64-shot | SentEval-CR | accuracy | 90.7 | 0.7 | stable |
+| shot_size | 64-shot | Average | N/A | 77.5 | 1.1 | stable |
+| num_iterations | iter=2, 8-shot | sst5 | accuracy | 37.8 | 2.1 | moderate |
+| num_iterations | iter=2, 8-shot | emotion | accuracy | 39.4 | 3.2 | moderate |
+| num_iterations | iter=2, 8-shot | enron_spam | accuracy | 90.6 | 1.6 | stable |
+| num_iterations | iter=2, 8-shot | ag_news | accuracy | 78.6 | 2.6 | moderate |
+| num_iterations | iter=2, 8-shot | amazon_counterfactual_en | matthews_correlation | 28.0 | 7.6 | unstable |
+| num_iterations | iter=2, 8-shot | SentEval-CR | accuracy | 85.6 | 2.8 | moderate |
+| num_iterations | iter=2, 8-shot | Average | N/A | 60.0 | 3.3 | moderate |
+| num_iterations | iter=5, 8-shot | sst5 | accuracy | 40.2 | 2.9 | moderate |
+| num_iterations | iter=5, 8-shot | emotion | accuracy | 43.6 | 2.5 | moderate |
+| num_iterations | iter=5, 8-shot | enron_spam | accuracy | 90.6 | 2.2 | moderate |
+| num_iterations | iter=5, 8-shot | ag_news | accuracy | 81.6 | 2.8 | moderate |
+| num_iterations | iter=5, 8-shot | amazon_counterfactual_en | matthews_correlation | 29.5 | 8.4 | unstable |
+| num_iterations | iter=5, 8-shot | SentEval-CR | accuracy | 87.8 | 2.4 | moderate |
+| num_iterations | iter=5, 8-shot | Average | N/A | 62.2 | 3.5 | moderate |
+| num_iterations | iter=10, 8-shot | sst5 | accuracy | 43.0 | 3.0 | moderate |
+| num_iterations | iter=10, 8-shot | emotion | accuracy | 47.2 | 4.2 | moderate |
+| num_iterations | iter=10, 8-shot | enron_spam | accuracy | 90.7 | 3.3 | moderate |
+| num_iterations | iter=10, 8-shot | ag_news | accuracy | 83.1 | 2.6 | moderate |
+| num_iterations | iter=10, 8-shot | amazon_counterfactual_en | matthews_correlation | 33.1 | 10.3 | unstable |
+| num_iterations | iter=10, 8-shot | SentEval-CR | accuracy | 89.3 | 1.2 | stable |
+| num_iterations | iter=10, 8-shot | Average | N/A | 64.4 | 4.1 | moderate |
+| num_iterations | iter=20, 8-shot | sst5 | accuracy | 44.1 | 2.3 | moderate |
+| num_iterations | iter=20, 8-shot | emotion | accuracy | 49.1 | 3.6 | moderate |
+| num_iterations | iter=20, 8-shot | enron_spam | accuracy | 90.1 | 3.4 | moderate |
+| num_iterations | iter=20, 8-shot | ag_news | accuracy | 83.0 | 3.2 | moderate |
+| num_iterations | iter=20, 8-shot | amazon_counterfactual_en | matthews_correlation | 40.3 | 13.5 | unstable |
+| num_iterations | iter=20, 8-shot | SentEval-CR | accuracy | 88.9 | 1.4 | stable |
+| num_iterations | iter=20, 8-shot | Average | N/A | 65.9 | 4.6 | moderate |
+| classifier | LR, 8-shot | sst5 | accuracy | 44.1 | 2.3 | moderate |
+| classifier | LR, 8-shot | emotion | accuracy | 49.1 | 3.6 | moderate |
+| classifier | LR, 8-shot | enron_spam | accuracy | 90.1 | 3.4 | moderate |
+| classifier | LR, 8-shot | ag_news | accuracy | 83.0 | 3.2 | moderate |
+| classifier | LR, 8-shot | amazon_counterfactual_en | matthews_correlation | 40.3 | 13.5 | unstable |
+| classifier | LR, 8-shot | SentEval-CR | accuracy | 88.9 | 1.4 | stable |
+| classifier | LR, 8-shot | Average | N/A | 65.9 | 4.6 | moderate |
+| classifier | SVC-RBF, 8-shot | sst5 | accuracy | 44.5 | 2.5 | moderate |
+| classifier | SVC-RBF, 8-shot | emotion | accuracy | 48.6 | 4.4 | moderate |
+| classifier | SVC-RBF, 8-shot | enron_spam | accuracy | 90.0 | 3.6 | moderate |
+| classifier | SVC-RBF, 8-shot | ag_news | accuracy | 82.2 | 3.7 | moderate |
+| classifier | SVC-RBF, 8-shot | amazon_counterfactual_en | matthews_correlation | 42.7 | 14.1 | unstable |
+| classifier | SVC-RBF, 8-shot | SentEval-CR | accuracy | 88.8 | 1.5 | stable |
+| classifier | SVC-RBF, 8-shot | Average | N/A | 66.2 | 4.9 | moderate |
+| classifier | KNN, 8-shot | sst5 | accuracy | 44.1 | 2.5 | moderate |
+| classifier | KNN, 8-shot | emotion | accuracy | 49.2 | 3.7 | moderate |
+| classifier | KNN, 8-shot | enron_spam | accuracy | 90.2 | 3.4 | moderate |
+| classifier | KNN, 8-shot | ag_news | accuracy | 83.2 | 2.8 | moderate |
+| classifier | KNN, 8-shot | amazon_counterfactual_en | matthews_correlation | 38.6 | 13.1 | unstable |
+| classifier | KNN, 8-shot | SentEval-CR | accuracy | 89.0 | 1.3 | stable |
+| classifier | KNN, 8-shot | Average | N/A | 65.7 | 4.4 | moderate |

@@ -1,0 +1,193 @@
+# Unified Score Results
+
+| experiment_group | method | dataset | measure | shot | num_iterations | classifier | pair_strategy | hard_negative_ratio | mean | std | delta_vs_reference | reference |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| classifier | SetFit KNN | sst5 | accuracy | 8 | 20 | KNN | random | N/A | 44.1 | 2.5 | +0.0 | SetFit LR |
+| classifier | SetFit LR | sst5 | accuracy | 8 | 20 | LR | random | N/A | 44.1 | 2.3 | +0.0 | SetFit LR |
+| classifier | SetFit SVC-RBF | sst5 | accuracy | 8 | 20 | SVC-RBF | random | N/A | 44.5 | 2.5 | +0.4 | SetFit LR |
+| classifier | SetFit KNN | emotion | accuracy | 8 | 20 | KNN | random | N/A | 49.2 | 3.7 | +0.1 | SetFit LR |
+| classifier | SetFit LR | emotion | accuracy | 8 | 20 | LR | random | N/A | 49.1 | 3.6 | +0.0 | SetFit LR |
+| classifier | SetFit SVC-RBF | emotion | accuracy | 8 | 20 | SVC-RBF | random | N/A | 48.6 | 4.4 | -0.5 | SetFit LR |
+| classifier | SetFit KNN | enron_spam | accuracy | 8 | 20 | KNN | random | N/A | 90.2 | 3.4 | +0.1 | SetFit LR |
+| classifier | SetFit LR | enron_spam | accuracy | 8 | 20 | LR | random | N/A | 90.1 | 3.4 | +0.0 | SetFit LR |
+| classifier | SetFit SVC-RBF | enron_spam | accuracy | 8 | 20 | SVC-RBF | random | N/A | 90.0 | 3.6 | -0.1 | SetFit LR |
+| classifier | SetFit KNN | ag_news | accuracy | 8 | 20 | KNN | random | N/A | 83.2 | 2.8 | +0.2 | SetFit LR |
+| classifier | SetFit LR | ag_news | accuracy | 8 | 20 | LR | random | N/A | 83.0 | 3.2 | +0.0 | SetFit LR |
+| classifier | SetFit SVC-RBF | ag_news | accuracy | 8 | 20 | SVC-RBF | random | N/A | 82.2 | 3.7 | -0.8 | SetFit LR |
+| classifier | SetFit KNN | amazon_counterfactual_en | matthews_correlation | 8 | 20 | KNN | random | N/A | 38.6 | 13.1 | -1.7 | SetFit LR |
+| classifier | SetFit LR | amazon_counterfactual_en | matthews_correlation | 8 | 20 | LR | random | N/A | 40.3 | 13.5 | +0.0 | SetFit LR |
+| classifier | SetFit SVC-RBF | amazon_counterfactual_en | matthews_correlation | 8 | 20 | SVC-RBF | random | N/A | 42.7 | 14.1 | +2.4 | SetFit LR |
+| classifier | SetFit KNN | SentEval-CR | accuracy | 8 | 20 | KNN | random | N/A | 89.0 | 1.3 | +0.1 | SetFit LR |
+| classifier | SetFit LR | SentEval-CR | accuracy | 8 | 20 | LR | random | N/A | 88.9 | 1.4 | +0.0 | SetFit LR |
+| classifier | SetFit SVC-RBF | SentEval-CR | accuracy | 8 | 20 | SVC-RBF | random | N/A | 88.8 | 1.5 | -0.1 | SetFit LR |
+| classifier | SetFit KNN | Average | N/A | 8 | 20 | KNN | random | N/A | 65.7 | 4.4 | -0.2 | SetFit LR |
+| classifier | SetFit LR | Average | N/A | 8 | 20 | LR | random | N/A | 65.9 | 4.6 | +0.0 | SetFit LR |
+| classifier | SetFit SVC-RBF | Average | N/A | 8 | 20 | SVC-RBF | random | N/A | 66.2 | 4.9 | +0.3 | SetFit LR |
+| hard_negative_ratio | HN-100 | sst5 | accuracy | 8 | 20 | logistic_regression | hard_negative | 1.0 | 43.7 | 2.7 | -0.4 | SetFit random pairs |
+| hard_negative_ratio | HN-25 | sst5 | accuracy | 8 | 20 | logistic_regression | hard_negative | 0.25 | 43.8 | 3.5 | -0.3 | SetFit random pairs |
+| hard_negative_ratio | HN-50 | sst5 | accuracy | 8 | 20 | logistic_regression | hard_negative | 0.50 | 43.5 | 3.4 | -0.6 | SetFit random pairs |
+| hard_negative_ratio | HN-75 | sst5 | accuracy | 8 | 20 | logistic_regression | hard_negative | 0.75 | 43.8 | 2.7 | -0.3 | SetFit random pairs |
+| hard_negative_ratio | SetFit | sst5 | accuracy | 8 | 20 | logistic_regression | random | N/A | 44.1 | 2.3 | +0.0 | SetFit random pairs |
+| hard_negative_ratio | HN-100 | emotion | accuracy | 8 | 20 | logistic_regression | hard_negative | 1.0 | 48.6 | 3.7 | -0.5 | SetFit random pairs |
+| hard_negative_ratio | HN-25 | emotion | accuracy | 8 | 20 | logistic_regression | hard_negative | 0.25 | 50.0 | 3.5 | +0.9 | SetFit random pairs |
+| hard_negative_ratio | HN-50 | emotion | accuracy | 8 | 20 | logistic_regression | hard_negative | 0.50 | 50.0 | 4.4 | +0.9 | SetFit random pairs |
+| hard_negative_ratio | HN-75 | emotion | accuracy | 8 | 20 | logistic_regression | hard_negative | 0.75 | 49.2 | 3.8 | +0.1 | SetFit random pairs |
+| hard_negative_ratio | SetFit | emotion | accuracy | 8 | 20 | logistic_regression | random | N/A | 49.1 | 3.6 | +0.0 | SetFit random pairs |
+| hard_negative_ratio | HN-100 | enron_spam | accuracy | 8 | 20 | logistic_regression | hard_negative | 1.0 | 90.3 | 3.3 | +0.2 | SetFit random pairs |
+| hard_negative_ratio | HN-25 | enron_spam | accuracy | 8 | 20 | logistic_regression | hard_negative | 0.25 | 90.2 | 3.2 | +0.1 | SetFit random pairs |
+| hard_negative_ratio | HN-50 | enron_spam | accuracy | 8 | 20 | logistic_regression | hard_negative | 0.50 | 90.1 | 3.2 | +0.0 | SetFit random pairs |
+| hard_negative_ratio | HN-75 | enron_spam | accuracy | 8 | 20 | logistic_regression | hard_negative | 0.75 | 90.2 | 3.2 | +0.1 | SetFit random pairs |
+| hard_negative_ratio | SetFit | enron_spam | accuracy | 8 | 20 | logistic_regression | random | N/A | 90.1 | 3.4 | +0.0 | SetFit random pairs |
+| hard_negative_ratio | HN-100 | ag_news | accuracy | 8 | 20 | logistic_regression | hard_negative | 1.0 | 83.3 | 2.6 | +0.3 | SetFit random pairs |
+| hard_negative_ratio | HN-25 | ag_news | accuracy | 8 | 20 | logistic_regression | hard_negative | 0.25 | 83.4 | 2.7 | +0.4 | SetFit random pairs |
+| hard_negative_ratio | HN-50 | ag_news | accuracy | 8 | 20 | logistic_regression | hard_negative | 0.50 | 83.4 | 2.4 | +0.4 | SetFit random pairs |
+| hard_negative_ratio | HN-75 | ag_news | accuracy | 8 | 20 | logistic_regression | hard_negative | 0.75 | 83.6 | 2.3 | +0.6 | SetFit random pairs |
+| hard_negative_ratio | SetFit | ag_news | accuracy | 8 | 20 | logistic_regression | random | N/A | 83.0 | 3.2 | +0.0 | SetFit random pairs |
+| hard_negative_ratio | HN-100 | amazon_counterfactual_en | matthews_correlation | 8 | 20 | logistic_regression | hard_negative | 1.0 | 44.3 | 13.0 | +4.0 | SetFit random pairs |
+| hard_negative_ratio | HN-25 | amazon_counterfactual_en | matthews_correlation | 8 | 20 | logistic_regression | hard_negative | 0.25 | 45.0 | 12.8 | +4.7 | SetFit random pairs |
+| hard_negative_ratio | HN-50 | amazon_counterfactual_en | matthews_correlation | 8 | 20 | logistic_regression | hard_negative | 0.50 | 44.9 | 13.3 | +4.6 | SetFit random pairs |
+| hard_negative_ratio | HN-75 | amazon_counterfactual_en | matthews_correlation | 8 | 20 | logistic_regression | hard_negative | 0.75 | 44.3 | 13.2 | +4.0 | SetFit random pairs |
+| hard_negative_ratio | SetFit | amazon_counterfactual_en | matthews_correlation | 8 | 20 | logistic_regression | random | N/A | 40.3 | 13.5 | +0.0 | SetFit random pairs |
+| hard_negative_ratio | HN-100 | SentEval-CR | accuracy | 8 | 20 | logistic_regression | hard_negative | 1.0 | 89.0 | 1.8 | +0.1 | SetFit random pairs |
+| hard_negative_ratio | HN-25 | SentEval-CR | accuracy | 8 | 20 | logistic_regression | hard_negative | 0.25 | 89.0 | 1.6 | +0.1 | SetFit random pairs |
+| hard_negative_ratio | HN-50 | SentEval-CR | accuracy | 8 | 20 | logistic_regression | hard_negative | 0.50 | 88.8 | 2.0 | -0.1 | SetFit random pairs |
+| hard_negative_ratio | HN-75 | SentEval-CR | accuracy | 8 | 20 | logistic_regression | hard_negative | 0.75 | 88.8 | 2.0 | -0.1 | SetFit random pairs |
+| hard_negative_ratio | SetFit | SentEval-CR | accuracy | 8 | 20 | logistic_regression | random | N/A | 88.9 | 1.4 | +0.0 | SetFit random pairs |
+| hard_negative_ratio | HN-100 | Average | N/A | 8 | 20 | logistic_regression | hard_negative | 1.0 | 66.5 | 4.5 | +0.6 | SetFit random pairs |
+| hard_negative_ratio | HN-25 | Average | N/A | 8 | 20 | logistic_regression | hard_negative | 0.25 | 66.9 | 4.6 | +1.0 | SetFit random pairs |
+| hard_negative_ratio | HN-50 | Average | N/A | 8 | 20 | logistic_regression | hard_negative | 0.50 | 66.8 | 4.8 | +0.9 | SetFit random pairs |
+| hard_negative_ratio | HN-75 | Average | N/A | 8 | 20 | logistic_regression | hard_negative | 0.75 | 66.7 | 4.5 | +0.8 | SetFit random pairs |
+| hard_negative_ratio | SetFit | Average | N/A | 8 | 20 | logistic_regression | random | N/A | 65.9 | 4.6 | +0.0 | SetFit random pairs |
+| method_by_shot | Frozen ST + LR | sst5 | accuracy | 2 | N/A | logistic_regression | N/A | N/A | 31.0 | 2.1 | -2.0 | SetFit same shot |
+| method_by_shot | SetFit | sst5 | accuracy | 2 | 20 | logistic_regression | random | N/A | 33.0 | 2.9 |  |  |
+| method_by_shot | SetFit-HN-50 | sst5 | accuracy | 2 | 20 | logistic_regression | hard_negative | 0.5 | 33.5 | 2.7 | +0.5 | SetFit same shot |
+| method_by_shot | Frozen ST + LR | sst5 | accuracy | 4 | N/A | logistic_regression | N/A | N/A | 33.9 | 1.9 | -5.2 | SetFit same shot |
+| method_by_shot | SetFit | sst5 | accuracy | 4 | 20 | logistic_regression | random | N/A | 39.1 | 3.0 |  |  |
+| method_by_shot | SetFit-HN-50 | sst5 | accuracy | 4 | 20 | logistic_regression | hard_negative | 0.5 | 38.8 | 2.4 | -0.3 | SetFit same shot |
+| method_by_shot | Frozen ST + LR | sst5 | accuracy | 8 | N/A | logistic_regression | N/A | N/A | 36.8 | 2.1 | -7.3 | SetFit same shot |
+| method_by_shot | SetFit | sst5 | accuracy | 8 | 20 | logistic_regression | random | N/A | 44.1 | 2.3 |  |  |
+| method_by_shot | SetFit-HN-50 | sst5 | accuracy | 8 | 20 | logistic_regression | hard_negative | 0.5 | 43.5 | 3.4 | -0.6 | SetFit same shot |
+| method_by_shot | Frozen ST + LR | sst5 | accuracy | 16 | N/A | logistic_regression | N/A | N/A | 38.7 | 2.0 | -7.7 | SetFit same shot |
+| method_by_shot | SetFit | sst5 | accuracy | 16 | 20 | logistic_regression | random | N/A | 46.4 | 1.6 |  |  |
+| method_by_shot | SetFit-HN-50 | sst5 | accuracy | 16 | 20 | logistic_regression | hard_negative | 0.5 | 47.4 | 0.7 | +1.0 | SetFit same shot |
+| method_by_shot | Frozen ST + LR | sst5 | accuracy | 64 | N/A | logistic_regression | N/A | N/A | 42.2 | 1.6 | -9.6 | SetFit same shot |
+| method_by_shot | SetFit | sst5 | accuracy | 64 | 20 | logistic_regression | random | N/A | 51.8 | 0.5 |  |  |
+| method_by_shot | SetFit-HN-50 | sst5 | accuracy | 64 | 20 | logistic_regression | hard_negative | 0.5 | 52.3 | 0.4 | +0.5 | SetFit same shot |
+| method_by_shot | Frozen ST + LR | emotion | accuracy | 2 | N/A | logistic_regression | N/A | N/A | 28.9 | 6.0 | -0.3 | SetFit same shot |
+| method_by_shot | SetFit | emotion | accuracy | 2 | 20 | logistic_regression | random | N/A | 29.2 | 6.4 |  |  |
+| method_by_shot | SetFit-HN-50 | emotion | accuracy | 2 | 20 | logistic_regression | hard_negative | 0.5 | 30.8 | 7.5 | +1.6 | SetFit same shot |
+| method_by_shot | Frozen ST + LR | emotion | accuracy | 4 | N/A | logistic_regression | N/A | N/A | 32.4 | 3.4 | -5.1 | SetFit same shot |
+| method_by_shot | SetFit | emotion | accuracy | 4 | 20 | logistic_regression | random | N/A | 37.5 | 4.2 |  |  |
+| method_by_shot | SetFit-HN-50 | emotion | accuracy | 4 | 20 | logistic_regression | hard_negative | 0.5 | 37.7 | 3.7 | +0.2 | SetFit same shot |
+| method_by_shot | Frozen ST + LR | emotion | accuracy | 8 | N/A | logistic_regression | N/A | N/A | 37.8 | 3.0 | -11.3 | SetFit same shot |
+| method_by_shot | SetFit | emotion | accuracy | 8 | 20 | logistic_regression | random | N/A | 49.1 | 3.6 |  |  |
+| method_by_shot | SetFit-HN-50 | emotion | accuracy | 8 | 20 | logistic_regression | hard_negative | 0.5 | 50.0 | 4.4 | +0.9 | SetFit same shot |
+| method_by_shot | Frozen ST + LR | emotion | accuracy | 16 | N/A | logistic_regression | N/A | N/A | 41.6 | 2.9 | -17.9 | SetFit same shot |
+| method_by_shot | SetFit | emotion | accuracy | 16 | 20 | logistic_regression | random | N/A | 59.5 | 3.0 |  |  |
+| method_by_shot | SetFit-HN-50 | emotion | accuracy | 16 | 20 | logistic_regression | hard_negative | 0.5 | 60.9 | 3.4 | +1.4 | SetFit same shot |
+| method_by_shot | Frozen ST + LR | emotion | accuracy | 64 | N/A | logistic_regression | N/A | N/A | 50.8 | 1.5 | -25.7 | SetFit same shot |
+| method_by_shot | SetFit | emotion | accuracy | 64 | 20 | logistic_regression | random | N/A | 76.5 | 1.3 |  |  |
+| method_by_shot | SetFit-HN-50 | emotion | accuracy | 64 | 20 | logistic_regression | hard_negative | 0.5 | 75.9 | 1.6 | -0.6 | SetFit same shot |
+| method_by_shot | Frozen ST + LR | enron_spam | accuracy | 2 | N/A | logistic_regression | N/A | N/A | 76.3 | 7.8 | +0.0 | SetFit same shot |
+| method_by_shot | SetFit | enron_spam | accuracy | 2 | 20 | logistic_regression | random | N/A | 76.3 | 7.1 |  |  |
+| method_by_shot | SetFit-HN-50 | enron_spam | accuracy | 2 | 20 | logistic_regression | hard_negative | 0.5 | 76.4 | 7.6 | +0.1 | SetFit same shot |
+| method_by_shot | Frozen ST + LR | enron_spam | accuracy | 4 | N/A | logistic_regression | N/A | N/A | 85.2 | 5.0 | -1.9 | SetFit same shot |
+| method_by_shot | SetFit | enron_spam | accuracy | 4 | 20 | logistic_regression | random | N/A | 87.1 | 4.1 |  |  |
+| method_by_shot | SetFit-HN-50 | enron_spam | accuracy | 4 | 20 | logistic_regression | hard_negative | 0.5 | 87.2 | 3.6 | +0.1 | SetFit same shot |
+| method_by_shot | Frozen ST + LR | enron_spam | accuracy | 8 | N/A | logistic_regression | N/A | N/A | 90.4 | 1.8 | +0.3 | SetFit same shot |
+| method_by_shot | SetFit | enron_spam | accuracy | 8 | 20 | logistic_regression | random | N/A | 90.1 | 3.4 |  |  |
+| method_by_shot | SetFit-HN-50 | enron_spam | accuracy | 8 | 20 | logistic_regression | hard_negative | 0.5 | 90.1 | 3.2 | +0.0 | SetFit same shot |
+| method_by_shot | Frozen ST + LR | enron_spam | accuracy | 16 | N/A | logistic_regression | N/A | N/A | 92.9 | 1.1 | +0.2 | SetFit same shot |
+| method_by_shot | SetFit | enron_spam | accuracy | 16 | 20 | logistic_regression | random | N/A | 92.7 | 2.1 |  |  |
+| method_by_shot | SetFit-HN-50 | enron_spam | accuracy | 16 | 20 | logistic_regression | hard_negative | 0.5 | 93.0 | 2.2 | +0.3 | SetFit same shot |
+| method_by_shot | Frozen ST + LR | enron_spam | accuracy | 64 | N/A | logistic_regression | N/A | N/A | 95.4 | 0.6 | -0.5 | SetFit same shot |
+| method_by_shot | SetFit | enron_spam | accuracy | 64 | 20 | logistic_regression | random | N/A | 95.9 | 0.5 |  |  |
+| method_by_shot | SetFit-HN-50 | enron_spam | accuracy | 64 | 20 | logistic_regression | hard_negative | 0.5 | 96.1 | 0.8 | +0.2 | SetFit same shot |
+| method_by_shot | Frozen ST + LR | ag_news | accuracy | 2 | N/A | logistic_regression | N/A | N/A | 57.6 | 4.1 | -6.3 | SetFit same shot |
+| method_by_shot | SetFit | ag_news | accuracy | 2 | 20 | logistic_regression | random | N/A | 63.9 | 5.4 |  |  |
+| method_by_shot | SetFit-HN-50 | ag_news | accuracy | 2 | 20 | logistic_regression | hard_negative | 0.5 | 63.8 | 5.8 | -0.1 | SetFit same shot |
+| method_by_shot | Frozen ST + LR | ag_news | accuracy | 4 | N/A | logistic_regression | N/A | N/A | 65.9 | 3.0 | -10.8 | SetFit same shot |
+| method_by_shot | SetFit | ag_news | accuracy | 4 | 20 | logistic_regression | random | N/A | 76.7 | 4.1 |  |  |
+| method_by_shot | SetFit-HN-50 | ag_news | accuracy | 4 | 20 | logistic_regression | hard_negative | 0.5 | 77.2 | 3.0 | +0.5 | SetFit same shot |
+| method_by_shot | Frozen ST + LR | ag_news | accuracy | 8 | N/A | logistic_regression | N/A | N/A | 74.3 | 2.8 | -8.7 | SetFit same shot |
+| method_by_shot | SetFit | ag_news | accuracy | 8 | 20 | logistic_regression | random | N/A | 83.0 | 3.2 |  |  |
+| method_by_shot | SetFit-HN-50 | ag_news | accuracy | 8 | 20 | logistic_regression | hard_negative | 0.5 | 83.4 | 2.4 | +0.4 | SetFit same shot |
+| method_by_shot | Frozen ST + LR | ag_news | accuracy | 16 | N/A | logistic_regression | N/A | N/A | 79.6 | 1.1 | -5.6 | SetFit same shot |
+| method_by_shot | SetFit | ag_news | accuracy | 16 | 20 | logistic_regression | random | N/A | 85.2 | 1.3 |  |  |
+| method_by_shot | SetFit-HN-50 | ag_news | accuracy | 16 | 20 | logistic_regression | hard_negative | 0.5 | 85.3 | 1.3 | +0.1 | SetFit same shot |
+| method_by_shot | Frozen ST + LR | ag_news | accuracy | 64 | N/A | logistic_regression | N/A | N/A | 84.4 | 0.7 | -3.7 | SetFit same shot |
+| method_by_shot | SetFit | ag_news | accuracy | 64 | 20 | logistic_regression | random | N/A | 88.1 | 0.6 |  |  |
+| method_by_shot | SetFit-HN-50 | ag_news | accuracy | 64 | 20 | logistic_regression | hard_negative | 0.5 | 88.1 | 0.6 | +0.0 | SetFit same shot |
+| method_by_shot | Frozen ST + LR | amazon_counterfactual_en | matthews_correlation | 2 | N/A | logistic_regression | N/A | N/A | 14.7 | 5.1 | -4.3 | SetFit same shot |
+| method_by_shot | SetFit | amazon_counterfactual_en | matthews_correlation | 2 | 20 | logistic_regression | random | N/A | 19.0 | 8.3 |  |  |
+| method_by_shot | SetFit-HN-50 | amazon_counterfactual_en | matthews_correlation | 2 | 20 | logistic_regression | hard_negative | 0.5 | 19.1 | 7.7 | +0.1 | SetFit same shot |
+| method_by_shot | Frozen ST + LR | amazon_counterfactual_en | matthews_correlation | 4 | N/A | logistic_regression | N/A | N/A | 17.9 | 9.4 | -7.7 | SetFit same shot |
+| method_by_shot | SetFit | amazon_counterfactual_en | matthews_correlation | 4 | 20 | logistic_regression | random | N/A | 25.6 | 13.6 |  |  |
+| method_by_shot | SetFit-HN-50 | amazon_counterfactual_en | matthews_correlation | 4 | 20 | logistic_regression | hard_negative | 0.5 | 25.4 | 13.9 | -0.2 | SetFit same shot |
+| method_by_shot | Frozen ST + LR | amazon_counterfactual_en | matthews_correlation | 8 | N/A | logistic_regression | N/A | N/A | 22.2 | 7.3 | -18.1 | SetFit same shot |
+| method_by_shot | SetFit | amazon_counterfactual_en | matthews_correlation | 8 | 20 | logistic_regression | random | N/A | 40.3 | 13.5 |  |  |
+| method_by_shot | SetFit-HN-50 | amazon_counterfactual_en | matthews_correlation | 8 | 20 | logistic_regression | hard_negative | 0.5 | 44.9 | 13.3 | +4.6 | SetFit same shot |
+| method_by_shot | Frozen ST + LR | amazon_counterfactual_en | matthews_correlation | 16 | N/A | logistic_regression | N/A | N/A | 28.6 | 6.8 | -22.1 | SetFit same shot |
+| method_by_shot | SetFit | amazon_counterfactual_en | matthews_correlation | 16 | 20 | logistic_regression | random | N/A | 50.7 | 6.9 |  |  |
+| method_by_shot | SetFit-HN-50 | amazon_counterfactual_en | matthews_correlation | 16 | 20 | logistic_regression | hard_negative | 0.5 | 49.0 | 6.9 | -1.7 | SetFit same shot |
+| method_by_shot | Frozen ST + LR | amazon_counterfactual_en | matthews_correlation | 64 | N/A | logistic_regression | N/A | N/A | 40.8 | 2.1 | -21.2 | SetFit same shot |
+| method_by_shot | SetFit | amazon_counterfactual_en | matthews_correlation | 64 | 20 | logistic_regression | random | N/A | 62.0 | 2.8 |  |  |
+| method_by_shot | SetFit-HN-50 | amazon_counterfactual_en | matthews_correlation | 64 | 20 | logistic_regression | hard_negative | 0.5 | 62.2 | 3.2 | +0.2 | SetFit same shot |
+| method_by_shot | Frozen ST + LR | SentEval-CR | accuracy | 2 | N/A | logistic_regression | N/A | N/A | 72.8 | 7.7 | -3.9 | SetFit same shot |
+| method_by_shot | SetFit | SentEval-CR | accuracy | 2 | 20 | logistic_regression | random | N/A | 76.7 | 10.5 |  |  |
+| method_by_shot | SetFit-HN-50 | SentEval-CR | accuracy | 2 | 20 | logistic_regression | hard_negative | 0.5 | 76.9 | 10.5 | +0.2 | SetFit same shot |
+| method_by_shot | Frozen ST + LR | SentEval-CR | accuracy | 4 | N/A | logistic_regression | N/A | N/A | 75.7 | 9.1 | -6.0 | SetFit same shot |
+| method_by_shot | SetFit | SentEval-CR | accuracy | 4 | 20 | logistic_regression | random | N/A | 81.7 | 9.0 |  |  |
+| method_by_shot | SetFit-HN-50 | SentEval-CR | accuracy | 4 | 20 | logistic_regression | hard_negative | 0.5 | 82.1 | 9.2 | +0.4 | SetFit same shot |
+| method_by_shot | Frozen ST + LR | SentEval-CR | accuracy | 8 | N/A | logistic_regression | N/A | N/A | 84.2 | 2.3 | -4.7 | SetFit same shot |
+| method_by_shot | SetFit | SentEval-CR | accuracy | 8 | 20 | logistic_regression | random | N/A | 88.9 | 1.4 |  |  |
+| method_by_shot | SetFit-HN-50 | SentEval-CR | accuracy | 8 | 20 | logistic_regression | hard_negative | 0.5 | 88.8 | 2.0 | -0.1 | SetFit same shot |
+| method_by_shot | Frozen ST + LR | SentEval-CR | accuracy | 16 | N/A | logistic_regression | N/A | N/A | 85.9 | 1.3 | -2.9 | SetFit same shot |
+| method_by_shot | SetFit | SentEval-CR | accuracy | 16 | 20 | logistic_regression | random | N/A | 88.8 | 1.4 |  |  |
+| method_by_shot | SetFit-HN-50 | SentEval-CR | accuracy | 16 | 20 | logistic_regression | hard_negative | 0.5 | 89.0 | 1.2 | +0.2 | SetFit same shot |
+| method_by_shot | Frozen ST + LR | SentEval-CR | accuracy | 64 | N/A | logistic_regression | N/A | N/A | 88.2 | 0.7 | -2.5 | SetFit same shot |
+| method_by_shot | SetFit | SentEval-CR | accuracy | 64 | 20 | logistic_regression | random | N/A | 90.7 | 0.7 |  |  |
+| method_by_shot | SetFit-HN-50 | SentEval-CR | accuracy | 64 | 20 | logistic_regression | hard_negative | 0.5 | 90.5 | 0.9 | -0.2 | SetFit same shot |
+| method_by_shot | Frozen ST + LR | Average | N/A | 2 | N/A | logistic_regression | N/A | N/A | 46.9 | 5.5 | -2.8 | SetFit same shot |
+| method_by_shot | SetFit | Average | N/A | 2 | 20 | logistic_regression | random | N/A | 49.7 | 6.8 |  |  |
+| method_by_shot | SetFit-HN-50 | Average | N/A | 2 | 20 | logistic_regression | hard_negative | 0.5 | 50.1 | 7.0 | +0.4 | SetFit same shot |
+| method_by_shot | Frozen ST + LR | Average | N/A | 4 | N/A | logistic_regression | N/A | N/A | 51.8 | 5.3 | -6.2 | SetFit same shot |
+| method_by_shot | SetFit | Average | N/A | 4 | 20 | logistic_regression | random | N/A | 58.0 | 6.3 |  |  |
+| method_by_shot | SetFit-HN-50 | Average | N/A | 4 | 20 | logistic_regression | hard_negative | 0.5 | 58.1 | 6.0 | +0.1 | SetFit same shot |
+| method_by_shot | Frozen ST + LR | Average | N/A | 8 | N/A | logistic_regression | N/A | N/A | 57.6 | 3.2 | -8.3 | SetFit same shot |
+| method_by_shot | SetFit | Average | N/A | 8 | 20 | logistic_regression | random | N/A | 65.9 | 4.6 |  |  |
+| method_by_shot | SetFit-HN-50 | Average | N/A | 8 | 20 | logistic_regression | hard_negative | 0.5 | 66.8 | 4.8 | +0.9 | SetFit same shot |
+| method_by_shot | Frozen ST + LR | Average | N/A | 16 | N/A | logistic_regression | N/A | N/A | 61.2 | 2.5 | -9.3 | SetFit same shot |
+| method_by_shot | SetFit | Average | N/A | 16 | 20 | logistic_regression | random | N/A | 70.5 | 2.7 |  |  |
+| method_by_shot | SetFit-HN-50 | Average | N/A | 16 | 20 | logistic_regression | hard_negative | 0.5 | 70.8 | 2.6 | +0.3 | SetFit same shot |
+| method_by_shot | Frozen ST + LR | Average | N/A | 64 | N/A | logistic_regression | N/A | N/A | 66.9 | 1.2 | -10.6 | SetFit same shot |
+| method_by_shot | SetFit | Average | N/A | 64 | 20 | logistic_regression | random | N/A | 77.5 | 1.1 |  |  |
+| method_by_shot | SetFit-HN-50 | Average | N/A | 64 | 20 | logistic_regression | hard_negative | 0.5 | 77.5 | 1.3 | +0.0 | SetFit same shot |
+| num_iterations | SetFit iter=10 | sst5 | accuracy | 8 | 10 | logistic_regression | random | N/A | 43.0 | 3.0 | -1.1 | SetFit iter=20 |
+| num_iterations | SetFit iter=2 | sst5 | accuracy | 8 | 2 | logistic_regression | random | N/A | 37.8 | 2.1 | -6.3 | SetFit iter=20 |
+| num_iterations | SetFit iter=20 | sst5 | accuracy | 8 | 20 | logistic_regression | random | N/A | 44.1 | 2.3 | +0.0 | SetFit iter=20 |
+| num_iterations | SetFit iter=5 | sst5 | accuracy | 8 | 5 | logistic_regression | random | N/A | 40.2 | 2.9 | -3.9 | SetFit iter=20 |
+| num_iterations | SetFit iter=10 | emotion | accuracy | 8 | 10 | logistic_regression | random | N/A | 47.2 | 4.2 | -1.9 | SetFit iter=20 |
+| num_iterations | SetFit iter=2 | emotion | accuracy | 8 | 2 | logistic_regression | random | N/A | 39.4 | 3.2 | -9.7 | SetFit iter=20 |
+| num_iterations | SetFit iter=20 | emotion | accuracy | 8 | 20 | logistic_regression | random | N/A | 49.1 | 3.6 | +0.0 | SetFit iter=20 |
+| num_iterations | SetFit iter=5 | emotion | accuracy | 8 | 5 | logistic_regression | random | N/A | 43.6 | 2.5 | -5.5 | SetFit iter=20 |
+| num_iterations | SetFit iter=10 | enron_spam | accuracy | 8 | 10 | logistic_regression | random | N/A | 90.7 | 3.3 | +0.6 | SetFit iter=20 |
+| num_iterations | SetFit iter=2 | enron_spam | accuracy | 8 | 2 | logistic_regression | random | N/A | 90.6 | 1.6 | +0.5 | SetFit iter=20 |
+| num_iterations | SetFit iter=20 | enron_spam | accuracy | 8 | 20 | logistic_regression | random | N/A | 90.1 | 3.4 | +0.0 | SetFit iter=20 |
+| num_iterations | SetFit iter=5 | enron_spam | accuracy | 8 | 5 | logistic_regression | random | N/A | 90.6 | 2.2 | +0.5 | SetFit iter=20 |
+| num_iterations | SetFit iter=10 | ag_news | accuracy | 8 | 10 | logistic_regression | random | N/A | 83.1 | 2.6 | +0.1 | SetFit iter=20 |
+| num_iterations | SetFit iter=2 | ag_news | accuracy | 8 | 2 | logistic_regression | random | N/A | 78.6 | 2.6 | -4.4 | SetFit iter=20 |
+| num_iterations | SetFit iter=20 | ag_news | accuracy | 8 | 20 | logistic_regression | random | N/A | 83.0 | 3.2 | +0.0 | SetFit iter=20 |
+| num_iterations | SetFit iter=5 | ag_news | accuracy | 8 | 5 | logistic_regression | random | N/A | 81.6 | 2.8 | -1.4 | SetFit iter=20 |
+| num_iterations | SetFit iter=10 | amazon_counterfactual_en | matthews_correlation | 8 | 10 | logistic_regression | random | N/A | 33.1 | 10.3 | -7.2 | SetFit iter=20 |
+| num_iterations | SetFit iter=2 | amazon_counterfactual_en | matthews_correlation | 8 | 2 | logistic_regression | random | N/A | 28.0 | 7.6 | -12.3 | SetFit iter=20 |
+| num_iterations | SetFit iter=20 | amazon_counterfactual_en | matthews_correlation | 8 | 20 | logistic_regression | random | N/A | 40.3 | 13.5 | +0.0 | SetFit iter=20 |
+| num_iterations | SetFit iter=5 | amazon_counterfactual_en | matthews_correlation | 8 | 5 | logistic_regression | random | N/A | 29.5 | 8.4 | -10.8 | SetFit iter=20 |
+| num_iterations | SetFit iter=10 | SentEval-CR | accuracy | 8 | 10 | logistic_regression | random | N/A | 89.3 | 1.2 | +0.4 | SetFit iter=20 |
+| num_iterations | SetFit iter=2 | SentEval-CR | accuracy | 8 | 2 | logistic_regression | random | N/A | 85.6 | 2.8 | -3.3 | SetFit iter=20 |
+| num_iterations | SetFit iter=20 | SentEval-CR | accuracy | 8 | 20 | logistic_regression | random | N/A | 88.9 | 1.4 | +0.0 | SetFit iter=20 |
+| num_iterations | SetFit iter=5 | SentEval-CR | accuracy | 8 | 5 | logistic_regression | random | N/A | 87.8 | 2.4 | -1.1 | SetFit iter=20 |
+| num_iterations | SetFit iter=10 | Average | N/A | 8 | 10 | logistic_regression | random | N/A | 64.4 | 4.1 | -1.5 | SetFit iter=20 |
+| num_iterations | SetFit iter=2 | Average | N/A | 8 | 2 | logistic_regression | random | N/A | 60.0 | 3.3 | -5.9 | SetFit iter=20 |
+| num_iterations | SetFit iter=20 | Average | N/A | 8 | 20 | logistic_regression | random | N/A | 65.9 | 4.6 | +0.0 | SetFit iter=20 |
+| num_iterations | SetFit iter=5 | Average | N/A | 8 | 5 | logistic_regression | random | N/A | 62.2 | 3.5 | -3.7 | SetFit iter=20 |

@@ -202,4 +202,4 @@ if __name__ == "__main__":
 
 
 # Script was called via:
-#python scripts/setfit/run_fewshot.py --sample_sizes 2 4 16 --is_test_set=true --num_iterations=20 --pair_strategy hard_negative --hard_negative_ratio=0.5 --exp_name test_hard_negative_hn50_shot_ablation
+#python scripts/setfit/run_fewshot.py --sample_sizes 64 --is_test_set=true --num_iterations=20 --pair_strategy hard_negative --hard_negative_ratio=0.5 --exp_name test_hard_negative_hn50_shot_ablation

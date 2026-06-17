@@ -135,4 +135,4 @@ if __name__ == "__main__":
 
 
 # Script was called via:
-#python run_frozen_st_lr.py --sample_sizes 2 4 8 16 --is_test_set=true --exp_name test_frozen_st_lr
+#python scripts/setfit/run_frozen_st_lr.py --sample_sizes 64 --is_test_set=true --exp_name test_frozen_st_lr

@@ -34,80 +34,94 @@ shot_size,16-shot,ag_news,accuracy,85.2,1.3,stable
 shot_size,16-shot,amazon_counterfactual_en,matthews_correlation,50.7,6.9,unstable
 shot_size,16-shot,SentEval-CR,accuracy,88.8,1.4,stable
 shot_size,16-shot,Average,N/A,70.5,2.7,moderate
-num_iterations,2,sst5,accuracy,37.8,2.1,moderate
-num_iterations,2,emotion,accuracy,39.4,3.2,moderate
-num_iterations,2,enron_spam,accuracy,90.6,1.6,stable
-num_iterations,2,ag_news,accuracy,78.6,2.6,moderate
-num_iterations,2,amazon_counterfactual_en,matthews_correlation,28.0,7.6,unstable
-num_iterations,2,SentEval-CR,accuracy,85.6,2.8,moderate
-num_iterations,2,Average,N/A,60.0,3.3,moderate
-num_iterations,5,sst5,accuracy,40.2,2.9,moderate
-num_iterations,5,emotion,accuracy,43.6,2.5,moderate
-num_iterations,5,enron_spam,accuracy,90.6,2.2,moderate
-num_iterations,5,ag_news,accuracy,81.6,2.8,moderate
-num_iterations,5,amazon_counterfactual_en,matthews_correlation,29.5,8.4,unstable
-num_iterations,5,SentEval-CR,accuracy,87.8,2.4,moderate
-num_iterations,5,Average,N/A,62.2,3.5,moderate
-num_iterations,10,sst5,accuracy,43.0,3.0,moderate
-num_iterations,10,emotion,accuracy,47.2,4.2,moderate
-num_iterations,10,enron_spam,accuracy,90.7,3.3,moderate
-num_iterations,10,ag_news,accuracy,83.1,2.6,moderate
-num_iterations,10,amazon_counterfactual_en,matthews_correlation,33.1,10.3,unstable
-num_iterations,10,SentEval-CR,accuracy,89.3,1.2,stable
-num_iterations,10,Average,N/A,64.4,4.1,moderate
-num_iterations,20,sst5,accuracy,44.1,2.3,moderate
-num_iterations,20,emotion,accuracy,49.1,3.6,moderate
-num_iterations,20,enron_spam,accuracy,90.1,3.4,moderate
-num_iterations,20,ag_news,accuracy,83.0,3.2,moderate
-num_iterations,20,amazon_counterfactual_en,matthews_correlation,40.3,13.5,unstable
-num_iterations,20,SentEval-CR,accuracy,88.9,1.4,stable
-num_iterations,20,Average,N/A,65.9,4.6,moderate
-classifier,logistic_regression,sst5,accuracy,44.1,2.3,moderate
-classifier,logistic_regression,emotion,accuracy,49.1,3.6,moderate
-classifier,logistic_regression,enron_spam,accuracy,90.1,3.4,moderate
-classifier,logistic_regression,ag_news,accuracy,83.0,3.2,moderate
-classifier,logistic_regression,amazon_counterfactual_en,matthews_correlation,40.3,13.5,unstable
-classifier,logistic_regression,SentEval-CR,accuracy,88.9,1.4,stable
-classifier,logistic_regression,Average,N/A,65.9,4.6,moderate
-classifier,svc-rbf,sst5,accuracy,44.5,2.5,moderate
-classifier,svc-rbf,emotion,accuracy,48.6,4.4,moderate
-classifier,svc-rbf,enron_spam,accuracy,90.0,3.6,moderate
-classifier,svc-rbf,ag_news,accuracy,82.2,3.7,moderate
-classifier,svc-rbf,amazon_counterfactual_en,matthews_correlation,42.7,14.1,unstable
-classifier,svc-rbf,SentEval-CR,accuracy,88.8,1.5,stable
-classifier,svc-rbf,Average,N/A,66.2,4.9,moderate
-classifier,knn,sst5,accuracy,44.1,2.5,moderate
-classifier,knn,emotion,accuracy,49.2,3.7,moderate
-classifier,knn,enron_spam,accuracy,90.2,3.4,moderate
-classifier,knn,ag_news,accuracy,83.2,2.8,moderate
-classifier,knn,amazon_counterfactual_en,matthews_correlation,38.6,13.1,unstable
-classifier,knn,SentEval-CR,accuracy,89.0,1.3,stable
-classifier,knn,Average,N/A,65.7,4.4,moderate
+shot_size,64-shot,sst5,accuracy,51.8,0.5,stable
+shot_size,64-shot,emotion,accuracy,76.5,1.3,stable
+shot_size,64-shot,enron_spam,accuracy,95.9,0.5,stable
+shot_size,64-shot,ag_news,accuracy,88.1,0.6,stable
+shot_size,64-shot,amazon_counterfactual_en,matthews_correlation,62.0,2.8,moderate
+shot_size,64-shot,SentEval-CR,accuracy,90.7,0.7,stable
+shot_size,64-shot,Average,N/A,77.5,1.1,stable
+num_iterations,"iter=2, 8-shot",sst5,accuracy,37.8,2.1,moderate
+num_iterations,"iter=2, 8-shot",emotion,accuracy,39.4,3.2,moderate
+num_iterations,"iter=2, 8-shot",enron_spam,accuracy,90.6,1.6,stable
+num_iterations,"iter=2, 8-shot",ag_news,accuracy,78.6,2.6,moderate
+num_iterations,"iter=2, 8-shot",amazon_counterfactual_en,matthews_correlation,28.0,7.6,unstable
+num_iterations,"iter=2, 8-shot",SentEval-CR,accuracy,85.6,2.8,moderate
+num_iterations,"iter=2, 8-shot",Average,N/A,60.0,3.3,moderate
+num_iterations,"iter=5, 8-shot",sst5,accuracy,40.2,2.9,moderate
+num_iterations,"iter=5, 8-shot",emotion,accuracy,43.6,2.5,moderate
+num_iterations,"iter=5, 8-shot",enron_spam,accuracy,90.6,2.2,moderate
+num_iterations,"iter=5, 8-shot",ag_news,accuracy,81.6,2.8,moderate
+num_iterations,"iter=5, 8-shot",amazon_counterfactual_en,matthews_correlation,29.5,8.4,unstable
+num_iterations,"iter=5, 8-shot",SentEval-CR,accuracy,87.8,2.4,moderate
+num_iterations,"iter=5, 8-shot",Average,N/A,62.2,3.5,moderate
+num_iterations,"iter=10, 8-shot",sst5,accuracy,43.0,3.0,moderate
+num_iterations,"iter=10, 8-shot",emotion,accuracy,47.2,4.2,moderate
+num_iterations,"iter=10, 8-shot",enron_spam,accuracy,90.7,3.3,moderate
+num_iterations,"iter=10, 8-shot",ag_news,accuracy,83.1,2.6,moderate
+num_iterations,"iter=10, 8-shot",amazon_counterfactual_en,matthews_correlation,33.1,10.3,unstable
+num_iterations,"iter=10, 8-shot",SentEval-CR,accuracy,89.3,1.2,stable
+num_iterations,"iter=10, 8-shot",Average,N/A,64.4,4.1,moderate
+num_iterations,"iter=20, 8-shot",sst5,accuracy,44.1,2.3,moderate
+num_iterations,"iter=20, 8-shot",emotion,accuracy,49.1,3.6,moderate
+num_iterations,"iter=20, 8-shot",enron_spam,accuracy,90.1,3.4,moderate
+num_iterations,"iter=20, 8-shot",ag_news,accuracy,83.0,3.2,moderate
+num_iterations,"iter=20, 8-shot",amazon_counterfactual_en,matthews_correlation,40.3,13.5,unstable
+num_iterations,"iter=20, 8-shot",SentEval-CR,accuracy,88.9,1.4,stable
+num_iterations,"iter=20, 8-shot",Average,N/A,65.9,4.6,moderate
+classifier,"LR, 8-shot",sst5,accuracy,44.1,2.3,moderate
+classifier,"LR, 8-shot",emotion,accuracy,49.1,3.6,moderate
+classifier,"LR, 8-shot",enron_spam,accuracy,90.1,3.4,moderate
+classifier,"LR, 8-shot",ag_news,accuracy,83.0,3.2,moderate
+classifier,"LR, 8-shot",amazon_counterfactual_en,matthews_correlation,40.3,13.5,unstable
+classifier,"LR, 8-shot",SentEval-CR,accuracy,88.9,1.4,stable
+classifier,"LR, 8-shot",Average,N/A,65.9,4.6,moderate
+classifier,"SVC-RBF, 8-shot",sst5,accuracy,44.5,2.5,moderate
+classifier,"SVC-RBF, 8-shot",emotion,accuracy,48.6,4.4,moderate
+classifier,"SVC-RBF, 8-shot",enron_spam,accuracy,90.0,3.6,moderate
+classifier,"SVC-RBF, 8-shot",ag_news,accuracy,82.2,3.7,moderate
+classifier,"SVC-RBF, 8-shot",amazon_counterfactual_en,matthews_correlation,42.7,14.1,unstable
+classifier,"SVC-RBF, 8-shot",SentEval-CR,accuracy,88.8,1.5,stable
+classifier,"SVC-RBF, 8-shot",Average,N/A,66.2,4.9,moderate
+classifier,"KNN, 8-shot",sst5,accuracy,44.1,2.5,moderate
+classifier,"KNN, 8-shot",emotion,accuracy,49.2,3.7,moderate
+classifier,"KNN, 8-shot",enron_spam,accuracy,90.2,3.4,moderate
+classifier,"KNN, 8-shot",ag_news,accuracy,83.2,2.8,moderate
+classifier,"KNN, 8-shot",amazon_counterfactual_en,matthews_correlation,38.6,13.1,unstable
+classifier,"KNN, 8-shot",SentEval-CR,accuracy,89.0,1.3,stable
+classifier,"KNN, 8-shot",Average,N/A,65.7,4.4,moderate
 frozen_st_lr,2-shot,sst5,accuracy,31.0,2.1,moderate
-frozen_st_lr,4-shot,sst5,accuracy,33.9,1.9,stable
-frozen_st_lr,8-shot,sst5,accuracy,36.8,2.1,moderate
-frozen_st_lr,16-shot,sst5,accuracy,38.7,2.0,stable
 frozen_st_lr,2-shot,emotion,accuracy,28.9,6.0,unstable
-frozen_st_lr,4-shot,emotion,accuracy,32.4,3.4,moderate
-frozen_st_lr,8-shot,emotion,accuracy,37.8,3.0,moderate
-frozen_st_lr,16-shot,emotion,accuracy,41.6,2.9,moderate
 frozen_st_lr,2-shot,enron_spam,accuracy,76.3,7.8,unstable
-frozen_st_lr,4-shot,enron_spam,accuracy,85.2,5.0,moderate
-frozen_st_lr,8-shot,enron_spam,accuracy,90.4,1.8,stable
-frozen_st_lr,16-shot,enron_spam,accuracy,92.9,1.1,stable
 frozen_st_lr,2-shot,ag_news,accuracy,57.6,4.1,moderate
-frozen_st_lr,4-shot,ag_news,accuracy,65.9,3.0,moderate
-frozen_st_lr,8-shot,ag_news,accuracy,74.3,2.8,moderate
-frozen_st_lr,16-shot,ag_news,accuracy,79.6,1.1,stable
 frozen_st_lr,2-shot,amazon_counterfactual_en,matthews_correlation,14.7,5.1,unstable
-frozen_st_lr,4-shot,amazon_counterfactual_en,matthews_correlation,17.9,9.4,unstable
-frozen_st_lr,8-shot,amazon_counterfactual_en,matthews_correlation,22.2,7.3,unstable
-frozen_st_lr,16-shot,amazon_counterfactual_en,matthews_correlation,28.6,6.8,unstable
 frozen_st_lr,2-shot,SentEval-CR,accuracy,72.8,7.7,unstable
-frozen_st_lr,4-shot,SentEval-CR,accuracy,75.7,9.1,unstable
-frozen_st_lr,8-shot,SentEval-CR,accuracy,84.2,2.3,moderate
-frozen_st_lr,16-shot,SentEval-CR,accuracy,85.9,1.3,stable
 frozen_st_lr,2-shot,Average,N/A,46.9,5.5,unstable
+frozen_st_lr,4-shot,sst5,accuracy,33.9,1.9,stable
+frozen_st_lr,4-shot,emotion,accuracy,32.4,3.4,moderate
+frozen_st_lr,4-shot,enron_spam,accuracy,85.2,5.0,moderate
+frozen_st_lr,4-shot,ag_news,accuracy,65.9,3.0,moderate
+frozen_st_lr,4-shot,amazon_counterfactual_en,matthews_correlation,17.9,9.4,unstable
+frozen_st_lr,4-shot,SentEval-CR,accuracy,75.7,9.1,unstable
 frozen_st_lr,4-shot,Average,N/A,51.8,5.3,unstable
+frozen_st_lr,8-shot,sst5,accuracy,36.8,2.1,moderate
+frozen_st_lr,8-shot,emotion,accuracy,37.8,3.0,moderate
+frozen_st_lr,8-shot,enron_spam,accuracy,90.4,1.8,stable
+frozen_st_lr,8-shot,ag_news,accuracy,74.3,2.8,moderate
+frozen_st_lr,8-shot,amazon_counterfactual_en,matthews_correlation,22.2,7.3,unstable
+frozen_st_lr,8-shot,SentEval-CR,accuracy,84.2,2.3,moderate
 frozen_st_lr,8-shot,Average,N/A,57.6,3.2,moderate
+frozen_st_lr,16-shot,sst5,accuracy,38.7,2.0,stable
+frozen_st_lr,16-shot,emotion,accuracy,41.6,2.9,moderate
+frozen_st_lr,16-shot,enron_spam,accuracy,92.9,1.1,stable
+frozen_st_lr,16-shot,ag_news,accuracy,79.6,1.1,stable
+frozen_st_lr,16-shot,amazon_counterfactual_en,matthews_correlation,28.6,6.8,unstable
+frozen_st_lr,16-shot,SentEval-CR,accuracy,85.9,1.3,stable
 frozen_st_lr,16-shot,Average,N/A,61.2,2.5,moderate
+frozen_st_lr,64-shot,sst5,accuracy,42.2,1.6,stable
+frozen_st_lr,64-shot,emotion,accuracy,50.8,1.5,stable
+frozen_st_lr,64-shot,enron_spam,accuracy,95.4,0.6,stable
+frozen_st_lr,64-shot,ag_news,accuracy,84.4,0.7,stable
+frozen_st_lr,64-shot,amazon_counterfactual_en,matthews_correlation,40.8,2.1,moderate
+frozen_st_lr,64-shot,SentEval-CR,accuracy,88.2,0.7,stable
+frozen_st_lr,64-shot,Average,N/A,66.9,1.2,stable

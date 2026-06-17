@@ -1,0 +1,106 @@
+dataset,measure,shot,method,mean,std,delta_vs_setfit
+sst5,accuracy,2,Frozen ST + LR,31.0,2.1,-2.0
+sst5,accuracy,2,SetFit,33.0,2.9,+0.0
+sst5,accuracy,2,SetFit-HN-50,33.5,2.7,+0.5
+sst5,accuracy,4,Frozen ST + LR,33.9,1.9,-5.2
+sst5,accuracy,4,SetFit,39.1,3.0,+0.0
+sst5,accuracy,4,SetFit-HN-50,38.8,2.4,-0.3
+sst5,accuracy,8,Frozen ST + LR,36.8,2.1,-7.3
+sst5,accuracy,8,SetFit,44.1,2.3,+0.0
+sst5,accuracy,8,SetFit-HN-50,43.5,3.4,-0.6
+sst5,accuracy,16,Frozen ST + LR,38.7,2.0,-7.7
+sst5,accuracy,16,SetFit,46.4,1.6,+0.0
+sst5,accuracy,16,SetFit-HN-50,47.4,0.7,+1.0
+sst5,accuracy,64,Frozen ST + LR,42.2,1.6,-9.6
+sst5,accuracy,64,SetFit,51.8,0.5,+0.0
+sst5,accuracy,64,SetFit-HN-50,52.3,0.4,+0.5
+emotion,accuracy,2,Frozen ST + LR,28.9,6.0,-0.3
+emotion,accuracy,2,SetFit,29.2,6.4,+0.0
+emotion,accuracy,2,SetFit-HN-50,30.8,7.5,+1.6
+emotion,accuracy,4,Frozen ST + LR,32.4,3.4,-5.1
+emotion,accuracy,4,SetFit,37.5,4.2,+0.0
+emotion,accuracy,4,SetFit-HN-50,37.7,3.7,+0.2
+emotion,accuracy,8,Frozen ST + LR,37.8,3.0,-11.3
+emotion,accuracy,8,SetFit,49.1,3.6,+0.0
+emotion,accuracy,8,SetFit-HN-50,50.0,4.4,+0.9
+emotion,accuracy,16,Frozen ST + LR,41.6,2.9,-17.9
+emotion,accuracy,16,SetFit,59.5,3.0,+0.0
+emotion,accuracy,16,SetFit-HN-50,60.9,3.4,+1.4
+emotion,accuracy,64,Frozen ST + LR,50.8,1.5,-25.7
+emotion,accuracy,64,SetFit,76.5,1.3,+0.0
+emotion,accuracy,64,SetFit-HN-50,75.9,1.6,-0.6
+enron_spam,accuracy,2,Frozen ST + LR,76.3,7.8,+0.0
+enron_spam,accuracy,2,SetFit,76.3,7.1,+0.0
+enron_spam,accuracy,2,SetFit-HN-50,76.4,7.6,+0.1
+enron_spam,accuracy,4,Frozen ST + LR,85.2,5.0,-1.9
+enron_spam,accuracy,4,SetFit,87.1,4.1,+0.0
+enron_spam,accuracy,4,SetFit-HN-50,87.2,3.6,+0.1
+enron_spam,accuracy,8,Frozen ST + LR,90.4,1.8,+0.3
+enron_spam,accuracy,8,SetFit,90.1,3.4,+0.0
+enron_spam,accuracy,8,SetFit-HN-50,90.1,3.2,+0.0
+enron_spam,accuracy,16,Frozen ST + LR,92.9,1.1,+0.2
+enron_spam,accuracy,16,SetFit,92.7,2.1,+0.0
+enron_spam,accuracy,16,SetFit-HN-50,93.0,2.2,+0.3
+enron_spam,accuracy,64,Frozen ST + LR,95.4,0.6,-0.5
+enron_spam,accuracy,64,SetFit,95.9,0.5,+0.0
+enron_spam,accuracy,64,SetFit-HN-50,96.1,0.8,+0.2
+ag_news,accuracy,2,Frozen ST + LR,57.6,4.1,-6.3
+ag_news,accuracy,2,SetFit,63.9,5.4,+0.0
+ag_news,accuracy,2,SetFit-HN-50,63.8,5.8,-0.1
+ag_news,accuracy,4,Frozen ST + LR,65.9,3.0,-10.8
+ag_news,accuracy,4,SetFit,76.7,4.1,+0.0
+ag_news,accuracy,4,SetFit-HN-50,77.2,3.0,+0.5
+ag_news,accuracy,8,Frozen ST + LR,74.3,2.8,-8.7
+ag_news,accuracy,8,SetFit,83.0,3.2,+0.0
+ag_news,accuracy,8,SetFit-HN-50,83.4,2.4,+0.4
+ag_news,accuracy,16,Frozen ST + LR,79.6,1.1,-5.6
+ag_news,accuracy,16,SetFit,85.2,1.3,+0.0
+ag_news,accuracy,16,SetFit-HN-50,85.3,1.3,+0.1
+ag_news,accuracy,64,Frozen ST + LR,84.4,0.7,-3.7
+ag_news,accuracy,64,SetFit,88.1,0.6,+0.0
+ag_news,accuracy,64,SetFit-HN-50,88.1,0.6,+0.0
+amazon_counterfactual_en,matthews_correlation,2,Frozen ST + LR,14.7,5.1,-4.3
+amazon_counterfactual_en,matthews_correlation,2,SetFit,19.0,8.3,+0.0
+amazon_counterfactual_en,matthews_correlation,2,SetFit-HN-50,19.1,7.7,+0.1
+amazon_counterfactual_en,matthews_correlation,4,Frozen ST + LR,17.9,9.4,-7.7
+amazon_counterfactual_en,matthews_correlation,4,SetFit,25.6,13.6,+0.0
+amazon_counterfactual_en,matthews_correlation,4,SetFit-HN-50,25.4,13.9,-0.2
+amazon_counterfactual_en,matthews_correlation,8,Frozen ST + LR,22.2,7.3,-18.1
+amazon_counterfactual_en,matthews_correlation,8,SetFit,40.3,13.5,+0.0
+amazon_counterfactual_en,matthews_correlation,8,SetFit-HN-50,44.9,13.3,+4.6
+amazon_counterfactual_en,matthews_correlation,16,Frozen ST + LR,28.6,6.8,-22.1
+amazon_counterfactual_en,matthews_correlation,16,SetFit,50.7,6.9,+0.0
+amazon_counterfactual_en,matthews_correlation,16,SetFit-HN-50,49.0,6.9,-1.7
+amazon_counterfactual_en,matthews_correlation,64,Frozen ST + LR,40.8,2.1,-21.2
+amazon_counterfactual_en,matthews_correlation,64,SetFit,62.0,2.8,+0.0
+amazon_counterfactual_en,matthews_correlation,64,SetFit-HN-50,62.2,3.2,+0.2
+SentEval-CR,accuracy,2,Frozen ST + LR,72.8,7.7,-3.9
+SentEval-CR,accuracy,2,SetFit,76.7,10.5,+0.0
+SentEval-CR,accuracy,2,SetFit-HN-50,76.9,10.5,+0.2
+SentEval-CR,accuracy,4,Frozen ST + LR,75.7,9.1,-6.0
+SentEval-CR,accuracy,4,SetFit,81.7,9.0,+0.0
+SentEval-CR,accuracy,4,SetFit-HN-50,82.1,9.2,+0.4
+SentEval-CR,accuracy,8,Frozen ST + LR,84.2,2.3,-4.7
+SentEval-CR,accuracy,8,SetFit,88.9,1.4,+0.0
+SentEval-CR,accuracy,8,SetFit-HN-50,88.8,2.0,-0.1
+SentEval-CR,accuracy,16,Frozen ST + LR,85.9,1.3,-2.9
+SentEval-CR,accuracy,16,SetFit,88.8,1.4,+0.0
+SentEval-CR,accuracy,16,SetFit-HN-50,89.0,1.2,+0.2
+SentEval-CR,accuracy,64,Frozen ST + LR,88.2,0.7,-2.5
+SentEval-CR,accuracy,64,SetFit,90.7,0.7,+0.0
+SentEval-CR,accuracy,64,SetFit-HN-50,90.5,0.9,-0.2
+Average,N/A,2,Frozen ST + LR,46.9,5.5,-2.8
+Average,N/A,2,SetFit,49.7,6.8,+0.0
+Average,N/A,2,SetFit-HN-50,50.1,7.0,+0.4
+Average,N/A,4,Frozen ST + LR,51.8,5.3,-6.2
+Average,N/A,4,SetFit,58.0,6.3,+0.0
+Average,N/A,4,SetFit-HN-50,58.1,6.0,+0.1
+Average,N/A,8,Frozen ST + LR,57.6,3.2,-8.3
+Average,N/A,8,SetFit,65.9,4.6,+0.0
+Average,N/A,8,SetFit-HN-50,66.8,4.8,+0.9
+Average,N/A,16,Frozen ST + LR,61.2,2.5,-9.3
+Average,N/A,16,SetFit,70.5,2.7,+0.0
+Average,N/A,16,SetFit-HN-50,70.8,2.6,+0.3
+Average,N/A,64,Frozen ST + LR,66.9,1.2,-10.6
+Average,N/A,64,SetFit,77.5,1.1,+0.0
+Average,N/A,64,SetFit-HN-50,77.5,1.3,+0.0

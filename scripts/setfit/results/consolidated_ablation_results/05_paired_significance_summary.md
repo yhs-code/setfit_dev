@@ -1,0 +1,16 @@
+# Paired Significance Summary
+
+| analysis | group | measure_or_shot | n_pairs | mean_delta | std_delta | wins | ties | losses | paired_t_p | wilcoxon_p |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| HN-50 vs SetFit, 8-shot by dataset | SentEval-CR | accuracy | 10 | -0.0930 | 1.2124 | 3 | 0 | 7 | 0.8139 | 0.5566 |
+| HN-50 vs SetFit, 8-shot by dataset | ag_news | accuracy | 10 | 0.4579 | 1.4889 | 6 | 0 | 4 | 0.3562 | 0.5566 |
+| HN-50 vs SetFit, 8-shot by dataset | amazon_counterfactual_en | matthews_correlation | 10 | 4.5806 | 3.5946 | 10 | 0 | 0 | 0.0030 | 0.0020 |
+| HN-50 vs SetFit, 8-shot by dataset | emotion | accuracy | 10 | 0.9200 | 3.8562 | 6 | 0 | 4 | 0.4699 | 0.3750 |
+| HN-50 vs SetFit, 8-shot by dataset | enron_spam | accuracy | 10 | -0.0750 | 1.3187 | 6 | 0 | 4 | 0.8613 | 0.9219 |
+| HN-50 vs SetFit, 8-shot by dataset | sst5 | accuracy | 10 | -0.6425 | 1.9357 | 5 | 0 | 5 | 0.3212 | 0.4316 |
+| HN-50 vs SetFit, 8-shot by dataset | Average | accuracy | 60 | 0.8580 | 2.9492 | 36 | 0 | 24 | 0.0280 | 0.0411 |
+| HN-50 vs SetFit, by shot | 2-shot | 2 | 60 | 0.3965 | 1.3110 | 35 | 1 | 24 | 0.0225 | 0.0189 |
+| HN-50 vs SetFit, by shot | 4-shot | 4 | 60 | 0.1056 | 1.7616 | 27 | 3 | 30 | 0.6442 | 0.8769 |
+| HN-50 vs SetFit, by shot | 8-shot | 8 | 60 | 0.8580 | 2.9492 | 36 | 0 | 24 | 0.0280 | 0.0411 |
+| HN-50 vs SetFit, by shot | 16-shot | 16 | 60 | 0.2216 | 1.8157 | 33 | 1 | 26 | 0.3483 | 0.1494 |
+| HN-50 vs SetFit, by shot | 64-shot | 64 | 60 | 0.0121 | 1.6585 | 34 | 1 | 25 | 0.9552 | 0.6157 |
